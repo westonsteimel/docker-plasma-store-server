@@ -18,3 +18,10 @@ RUN useradd --create-home --home-dir /home/plasma plasma \
 USER plasma
 
 ENTRYPOINT ["/usr/local/bin/plasma-store-server"]
+
+LABEL org.opencontainers.image.title="plasma-store-server" \
+    org.opencontainers.image.description="plasma-store-server in Docker" \ 
+    org.opencontainers.image.url="https://github.com/westonsteimel/docker-plasma-store-server" \ 
+    org.opencontainers.image.source="https://github.com/westonsteimel/docker-plasma-store-server" \
+    org.opencontainers.image.version="${ARROW_VERSION}" \
+    version="${ARROW_VERSION}"
