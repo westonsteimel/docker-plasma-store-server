@@ -1,0 +1,25 @@
+on:
+  schedule:
+  - cron: '0 1 * * *'
+name: Build and deploy on push
+jobs:
+  dockerhub_publish:
+    name: DockerHub Build and Publish
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Build and Publish to DockerHub
+      uses: westonsteimel/action-docker-publish@master
+      with:
+        registry: 'docker.io'
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        username: ${{ secrets.DOCKER_USERNAME }}
+        image_name: 'plasma-store-server'
+        build_context: '.'
+        dockerfile_path: 'Dockerfile'
+        tag_ref: false
+        tag_latest: true
+        tag_version: true
+        tag_sha: false
+        tag_timestamp: true
+
