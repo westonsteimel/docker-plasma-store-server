@@ -1,4 +1,4 @@
-ARG ARROW_VERSION="0.17.0"
+ARG ARROW_VERSION="0.17.1"
 
 FROM python:3.8-slim as builder
 ARG ARROW_VERSION
